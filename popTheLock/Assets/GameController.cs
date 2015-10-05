@@ -19,4 +19,8 @@ public class GameController : MonoBehaviour {
 	void YouLose(){
 		LoseUI.SetActive (true);
 	}
+
+	void YouWin(){
+		//LoseUI.SetActive (true);
+	}
 }

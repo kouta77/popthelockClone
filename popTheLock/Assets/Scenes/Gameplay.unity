@@ -183,10 +183,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StartGame: 0
+  LevelLenght: 0
   Target: {fileID: 769846887}
   Player: {fileID: 1636282073}
   MoveSpeed: 55
   Angles: {x: 0, y: 0}
+  AngleDir: 0
 --- !u!1 &403604811
 GameObject:
   m_ObjectHideFlags: 0
@@ -399,7 +401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f4a9e1b0f8ec414e9ce9fe8b55e3e10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Level: 1
+  Level: 5
   LoseUI: {fileID: 1226496092}
 --- !u!1 &769846886
 GameObject:
