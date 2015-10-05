@@ -110,7 +110,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 226783145}
   m_LocalRotation: {x: 0, y: 0, z: .707106829, w: .707106709}
-  m_LocalPosition: {x: -.0109999999, y: 1.449, z: 0}
+  m_LocalPosition: {x: -.0109999999, y: 1.10500002, z: 0}
   m_LocalScale: {x: .264599949, y: .262743562, z: .264599949}
   m_Children: []
   m_Father: {fileID: 769846887}
@@ -182,6 +182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e6d0a33ed27d6f4f84cc8094499b9f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  StartGame: 0
   Target: {fileID: 769846887}
   Player: {fileID: 1636282073}
   MoveSpeed: 55
@@ -367,6 +368,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 599720759}
+  - 114: {fileID: 599720760}
   m_Layer: 0
   m_Name: '[+] GameController'
   m_TagString: Untagged
@@ -386,6 +388,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
+--- !u!114 &599720760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 599720758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f4a9e1b0f8ec414e9ce9fe8b55e3e10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Level: 1
+  LoseUI: {fileID: 1226496092}
 --- !u!1 &769846886
 GameObject:
   m_ObjectHideFlags: 0
@@ -785,7 +800,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1702413051}
   m_LocalRotation: {x: 0, y: 0, z: .707106829, w: .707106709}
-  m_LocalPosition: {x: -.0130000003, y: 1.44799995, z: 0}
+  m_LocalPosition: {x: -.00999999978, y: 1.10399997, z: 0}
   m_LocalScale: {x: .264599949, y: .262743562, z: .264599949}
   m_Children: []
   m_Father: {fileID: 1636282073}
