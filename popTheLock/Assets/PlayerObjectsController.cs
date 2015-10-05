@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
+
 
 public class PlayerObjectsController : MonoBehaviour {
 	public bool StartGame;
@@ -14,11 +16,13 @@ public class PlayerObjectsController : MonoBehaviour {
 
 	public Vector2 Angles;
 
+	public Text CurrentPoints;
 
 	//**********private field***********//
 	private GameController controller;
 	private bool CanPress = false;
-	public int AngleDir = 0;//0 = <    -- 1 = >
+	private int AngleDir = 0;//0 = <    -- 1 = >
+	public bool CanReset = false;
 
 	void Start () {
 		controller = GameObject.FindObjectOfType<GameController> ();
@@ -29,6 +33,8 @@ public class PlayerObjectsController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		CurrentPoints.text = LevelLenght.ToString();
+
 		if (StartGame)
 			Angles.y += MoveSpeed * Time.deltaTime;
 		//values with '-' for clocklike rotation
@@ -41,16 +47,33 @@ public class PlayerObjectsController : MonoBehaviour {
 			}
 
 			if (CanPress) {
-
-				if (LevelLenght > 0)
-				{
-					LevelLenght -= 1;
+				if(CanReset == true){//Reset the game!
+					CanPress = false;
+					StartGame = false;
+					Angles.y = 0;
+					Angles.x = 0;
 					RePosition();
-				}
-				else
-					controller.SendMessage ("YouWin", SendMessageOptions.RequireReceiver);
 
-				CanPress = false;
+					LevelLenght = controller.Level;//reset the counter
+
+					controller.SendMessage("ResetUI",SendMessageOptions.RequireReceiver);
+					CanReset = false;
+				}
+			else{
+					if (LevelLenght > 1)
+					{
+						LevelLenght -= 1;
+						RePosition();
+					}
+					else
+					{
+						controller.SendMessage ("YouWin", SendMessageOptions.RequireReceiver);
+						StartGame = false;
+						controller.Level += 1;
+						CanReset = true;
+					}
+					CanPress = false;
+				}
 			}
 		}
 
@@ -58,6 +81,7 @@ public class PlayerObjectsController : MonoBehaviour {
 			if (Angles.y < Angles.x - 15) {
 				StartGame = false;
 				controller.SendMessage ("YouLose", SendMessageOptions.RequireReceiver);
+				CanReset = true;
 			}
 			if (Angles.y < Angles.x + 15) 
 				CanPress = true;
@@ -68,6 +92,7 @@ public class PlayerObjectsController : MonoBehaviour {
 				if (Angles.y > Angles.x + 15) {
 					StartGame = false;
 					controller.SendMessage ("YouLose", SendMessageOptions.RequireReceiver);
+					CanReset = true;	
 				}
 
 				if (Angles.y > Angles.x - 15)
@@ -96,30 +121,6 @@ public class PlayerObjectsController : MonoBehaviour {
 				Angles.x = Angles.x-20-Random.Range (0, 90);
 				AngleDir = 0;
 			}
-
-//			if(Angles.x < 0){
-//				if(AngleDir == 0){
-//					AngleDir = 1;
-//					Angles.x = Random.Range (-90, Angles.x+90);
-//				}
-//				//else
-//				if(AngleDir == 1){
-//					AngleDir = 0;
-//					Angles.x = Random.Range (90, Angles.x-90);
-//				}
-//			}
-//			else
-//			if(Angles.x > 0){
-//				if(AngleDir == 0){
-//					AngleDir = 1;
-//					Angles.x = Random.Range (90, Angles.x-90);
-//				}
-//				//else
-//				if(AngleDir == 1){
-//					AngleDir = 0;
-//					Angles.x = Random.Range (-90, Angles.x+90);
-//				}
-//			}
 		}
 
 		if (Angles.x == 0) {
