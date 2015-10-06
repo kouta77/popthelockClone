@@ -41,3 +41,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Characters
+    uniqueID: 3234947837
+    locked: 0
+  - name: Font UI
+    uniqueID: 2268081419
+    locked: 0

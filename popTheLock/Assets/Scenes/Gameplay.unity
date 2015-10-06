@@ -240,7 +240,7 @@ Transform:
   m_GameObject: {fileID: 226783145}
   m_LocalRotation: {x: 0, y: 0, z: .707106829, w: .707106709}
   m_LocalPosition: {x: -.0109999999, y: 1.10500002, z: 0}
-  m_LocalScale: {x: .264599949, y: .262743562, z: .264599949}
+  m_LocalScale: {x: .264599949, y: .262743592, z: -18.1700001}
   m_Children: []
   m_Father: {fileID: 769846887}
   m_RootOrder: 0
@@ -266,7 +266,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
+  m_SortingLayerID: -1060019459
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 0626b924325d1c34cafa6b22297f4e4f, type: 3}
   m_Color: {r: 1, g: .257352948, b: .257352948, a: 1}
@@ -318,7 +318,12 @@ MonoBehaviour:
   MoveSpeed: 55
   Angles: {x: 0, y: 0}
   CurrentPoints: {fileID: 202498353}
-  CanReset: 0
+  GoInside: 0
+  isInside: 0
+  one_click: 0
+  timer_running: 0
+  timer_for_double_click: 0
+  delay: .25
 --- !u!1 &403604811
 GameObject:
   m_ObjectHideFlags: 0
@@ -975,9 +980,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Level: 0
-
-'
+  m_Text: 'Best: 1'
 --- !u!222 &1225834896
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1096,10 +1099,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
+  m_SortingLayerID: -1060019459
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 0626b924325d1c34cafa6b22297f4e4f, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: .642301023, g: .992647052, b: .934658706, a: 1}
 --- !u!1 &2016271300
 GameObject:
   m_ObjectHideFlags: 0

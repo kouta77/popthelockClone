@@ -15,7 +15,7 @@ public class GameController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		CurrentLevelText.text = "Level: " + Level.ToString ();
+		CurrentLevelText.text = "Best: " + Level.ToString ();
 	}
 
 	void YouLose(){
