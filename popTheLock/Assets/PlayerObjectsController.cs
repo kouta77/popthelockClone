@@ -18,22 +18,28 @@ public class PlayerObjectsController : MonoBehaviour {
 
 	public Text CurrentPoints;
 
+
+	public int CurrentPlayerShape = 0;
+	public Sprite[] PlayerSprites;
+	public Sprite[] EnemySprites;
+
 	//**********private field***********//
 	private GameController controller;
 	private bool CanPress = false;
 	private int AngleDir = 0;//0 = <    -- 1 = >
-	private bool CanReset = false;
+	public bool CanReset = false;
 	public bool GoInside = false;
 	public bool isInside = false;
 
 	private Transform PlayerChild;
 	private Transform TargetChild;
-	private float SpeedMultiplier = 2f;
+	private float SpeedMultiplier = 1.5f;
 	public bool one_click = false;
 	public bool timer_running;
 	public float timer_for_double_click;
 	public float delay = 25;
 	private Collider2D thisCol;
+	public bool GameOver = false;
 
 	void Start () {
 		thisCol = GetComponent <BoxCollider2D>();
@@ -49,6 +55,11 @@ public class PlayerObjectsController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if (StartGame == false) {
+			PlayerChild.GetComponent<SpriteRenderer>().sprite = PlayerSprites[CurrentPlayerShape];
+			TargetChild.GetComponent<SpriteRenderer>().sprite = EnemySprites[CurrentPlayerShape];
+		}
+
 		//player game speed
 		//MoveSpeed = 55+SpeedMultiplier * LevelLenght;
 
@@ -75,9 +86,19 @@ public class PlayerObjectsController : MonoBehaviour {
 		Vector3 wp = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 		Vector2 touchPos = new Vector2(wp.x, wp.y);
 
+		if(one_click)
+		{
+			if((Time.time - timer_for_double_click) > delay)
+			{
+				if(!CanPress){
+					GameOver = true;
+				}
+				one_click = false;
+				
+			}
+		}
 
-
-		if (Input.GetMouseButtonDown (0) && thisCol == Physics2D.OverlapPoint(touchPos))//Input.GetMouseButtonDown (0)) 
+		if (Input.GetMouseButtonDown (0))//Input.GetMouseButtonDown (0)) 
 		{
 			if(!one_click)
 			{
@@ -87,7 +108,7 @@ public class PlayerObjectsController : MonoBehaviour {
 				timer_for_double_click = Time.time; // save the current time
 				}
 
-				if (StartGame == false) {
+				if (StartGame == false  && thisCol == Physics2D.OverlapPoint(touchPos)) {
 					StartGame = true;
 					controller.SendMessage("startGame");
 				}
@@ -100,6 +121,7 @@ public class PlayerObjectsController : MonoBehaviour {
 						Angles.x = 0;
 						MoveSpeed = 55;
 						isInside = false;
+						GameOver = false;
 						RePosition();
 
 						LevelLenght = 0;//controller.Level;//reset the counter
@@ -113,6 +135,7 @@ public class PlayerObjectsController : MonoBehaviour {
 							if(isInside == true)
 							{
 							LevelLenght += 1;
+							one_click = false;
 							RePosition();
 							}
 						}
@@ -121,6 +144,7 @@ public class PlayerObjectsController : MonoBehaviour {
 						{
 							if(isInside == false)
 							{
+								one_click = false;
 								LevelLenght += 1;
 								RePosition();
 							}
@@ -132,6 +156,8 @@ public class PlayerObjectsController : MonoBehaviour {
 	//						controller.Level += 1;
 	//						CanReset = true;
 	//					}
+
+
 						CanPress = false;
 					}
 				}
@@ -144,38 +170,32 @@ public class PlayerObjectsController : MonoBehaviour {
 			}
 
 		}
-		if(one_click)
-		{
-			if((Time.time - timer_for_double_click) > delay)
-			{
-				one_click = false;
-				
-			}
+
+
+		if(GameOver){
+			StartGame = false;
+			controller.SendMessage ("YouLose", SendMessageOptions.RequireReceiver);
+			controller.Level = LevelLenght;
+			MoveSpeed = 55;
+			CanPress = true;
+			CanReset = true;
 		}
 
 		if (AngleDir == 0) {
 			if (Angles.y < Angles.x - 15) {
-				StartGame = false;
-				controller.SendMessage ("YouLose", SendMessageOptions.RequireReceiver);
-				controller.Level = LevelLenght;
-				MoveSpeed = 55;
-				CanReset = true;
+				GameOver = true;
 			}
-			if (Angles.y < Angles.x + 2) 
+			if (Angles.y < Angles.x + 10) 
 				CanPress = true;
 
 			}
 
 			if (AngleDir == 1) {
 				if (Angles.y > Angles.x + 15) {
-					StartGame = false;
-					controller.SendMessage ("YouLose", SendMessageOptions.RequireReceiver);
-					controller.Level = LevelLenght;
-					MoveSpeed = 55;
-					CanReset = true;	
+					GameOver = true;
 				}
 
-				if (Angles.y > Angles.x - 2)
+			if (Angles.y > Angles.x - 10)
 					CanPress = true;
 			}
 	}
@@ -184,7 +204,7 @@ public class PlayerObjectsController : MonoBehaviour {
 		GoInside = randomBoolean();
 
 		if (Angles.x == 0) {
-			Angles.x = Random.Range (-180, 180);
+			Angles.x = Random.Range (-140, 140);
 
 			if(Angles.x < 0)
 				AngleDir = 0;
@@ -195,25 +215,31 @@ public class PlayerObjectsController : MonoBehaviour {
 		else 
 		{
 			if(AngleDir == 0){
-				Angles.x = Angles.x+20+Random.Range (0, 90);
+				Angles.x = Angles.x+Random.Range (0, 50);
 				AngleDir = 1;
 			}
 			else
 			if(AngleDir == 1){
-				Angles.x = Angles.x-20-Random.Range (0, 90);
+				Angles.x = Angles.x-Random.Range (0, 50);
 				AngleDir = 0;
 			}
 		}
 
-		if (Angles.x == 0) {
-			if (Angles.x < 0) {
-				if (Angles.x > -25)
-					Angles.x = -25;
-			}
-			if (Angles.x > 0) {
-				if (Angles.x < 25)
-					Angles.x = 25;
-			}
+
+//			if (Angles.x < 0) {
+//			if (Angles.x > -35)
+//				Angles.x = -35;
+//			}
+//			if (Angles.x > 0) {
+//			if (Angles.x < 35)
+//				Angles.x = 35;
+//			}
+
+		if(Mathf.Abs(Angles.x) - Mathf.Abs(Angles.y) < 50){
+			if(AngleDir == 0)
+				Angles.x = Angles.x-(50-(Mathf.Abs(Angles.x) - Mathf.Abs(Angles.y)));
+			if(AngleDir == 1)
+				Angles.x = Angles.x+(50-(Mathf.Abs(Angles.x) - Mathf.Abs(Angles.y)));
 		}
 
 		if (AngleDir == 0)

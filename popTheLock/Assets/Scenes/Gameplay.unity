@@ -146,7 +146,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: 'skin
+
+'
 --- !u!222 &8078687
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -273,7 +275,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: skin
 --- !u!222 &70856165
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -359,41 +361,6 @@ MonoBehaviour:
   m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 13
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 281828919}
-          m_MethodName: touchDown
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
-        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  - eventID: 14
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 281828919}
-          m_MethodName: touchUp
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
-        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
 --- !u!1 &169600361
 GameObject:
@@ -755,7 +722,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: skin
 --- !u!222 &371263723
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -811,12 +778,31 @@ MonoBehaviour:
   MoveSpeed: 55
   Angles: {x: 0, y: 0}
   CurrentPoints: {fileID: 202498353}
+  CurrentPlayerShape: 0
+  PlayerSprites:
+  - {fileID: 21300000, guid: ea5873cfd9158664f89459f0c9e1d853, type: 3}
+  - {fileID: 21300000, guid: e4f1fee3de32377429fd1348fae62b10, type: 3}
+  - {fileID: 21300000, guid: 0626b924325d1c34cafa6b22297f4e4f, type: 3}
+  - {fileID: 21300000, guid: 0626b924325d1c34cafa6b22297f4e4f, type: 3}
+  - {fileID: 21300000, guid: 0626b924325d1c34cafa6b22297f4e4f, type: 3}
+  - {fileID: 21300000, guid: 0626b924325d1c34cafa6b22297f4e4f, type: 3}
+  - {fileID: 21300000, guid: 0626b924325d1c34cafa6b22297f4e4f, type: 3}
+  EnemySprites:
+  - {fileID: 21300000, guid: 0626b924325d1c34cafa6b22297f4e4f, type: 3}
+  - {fileID: 21300000, guid: ea5873cfd9158664f89459f0c9e1d853, type: 3}
+  - {fileID: 21300000, guid: 0626b924325d1c34cafa6b22297f4e4f, type: 3}
+  - {fileID: 21300000, guid: 0626b924325d1c34cafa6b22297f4e4f, type: 3}
+  - {fileID: 21300000, guid: 0c6271a290ef75b4c97d58746c86c5b8, type: 3}
+  - {fileID: 21300000, guid: 0626b924325d1c34cafa6b22297f4e4f, type: 3}
+  - {fileID: 21300000, guid: 0626b924325d1c34cafa6b22297f4e4f, type: 3}
+  CanReset: 0
   GoInside: 0
   isInside: 0
   one_click: 0
   timer_running: 0
   timer_for_double_click: 0
-  delay: .25
+  delay: .150000006
+  GameOver: 0
 --- !u!61 &387578245
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1056,7 +1042,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: .0219999999
-  m_StereoMirrorMode: 0
 --- !u!4 &598701056
 Transform:
   m_ObjectHideFlags: 0
@@ -1294,7 +1279,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: 'skin
+
+'
 --- !u!222 &850294476
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1451,7 +1438,6 @@ MonoBehaviour:
   m_SubmitButton: Submit
   m_CancelButton: Cancel
   m_InputActionsPerSecond: 10
-  m_RepeatDelay: .5
   m_AllowActivationOnMobileDevice: 0
 --- !u!114 &1098047546
 MonoBehaviour:
@@ -1864,7 +1850,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: 'skin
+
+'
 --- !u!222 &1439037051
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2062,7 +2050,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: 'skin
+
+'
 --- !u!222 &1687669630
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2320,7 +2310,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: 'skin
+
+'
 --- !u!222 &2063013152
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2355,9 +2347,9 @@ RectTransform:
   - {fileID: 164822947}
   m_Father: {fileID: 770666909}
   m_RootOrder: 4
-  m_AnchorMin: {x: .5, y: .5}
-  m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: .5, y: 0}
+  m_AnchorMax: {x: .5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 831}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: .5, y: .5}
 --- !u!1 &2127568668

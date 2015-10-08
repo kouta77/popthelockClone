@@ -10,8 +10,10 @@ public class gridsnap : MonoBehaviour {
     Vector2 targetPos;
     bool done = false;
     float t = 0;
+	PlayerObjectsController PlayerControl;
 
     void Start() {
+		PlayerControl = GameObject.FindObjectOfType<PlayerObjectsController> ();
         grid = GetComponent<GridLayoutGroup>();
         rect = GetComponent<RectTransform>();
         scrollRect = GetComponentInParent<ScrollRect>();
@@ -41,7 +43,9 @@ public class gridsnap : MonoBehaviour {
             Transform child = transform.GetChild(i);
             if (child.localPosition.x == tempPos.x) {
                 // do what you want with the child
+				PlayerControl.CurrentPlayerShape = int.Parse(child.name.Substring(7))-1;
                 child.localScale = Vector3.Lerp(child.localScale, new Vector3(1.4f, 1.4f, 1f), t);
+
             }
             else {
                 child.localScale = Vector3.Lerp(child.localScale, new Vector3(1f, 1f, 1f), t);
