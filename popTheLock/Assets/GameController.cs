@@ -8,6 +8,9 @@ public class GameController : MonoBehaviour {
 
 	public GameObject LoseUI;
 	public GameObject WinUI;
+
+	public GameObject StartScreenUI;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -30,5 +33,10 @@ public class GameController : MonoBehaviour {
 		Debug.Log ("reset UI");
 		WinUI.SetActive (false);
 		LoseUI.SetActive (false);
+		StartScreenUI.SetActive (true);
+	}
+
+	void startGame(){
+		StartScreenUI.SetActive (false);
 	}
 }

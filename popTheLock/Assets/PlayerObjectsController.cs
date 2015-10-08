@@ -33,9 +33,11 @@ public class PlayerObjectsController : MonoBehaviour {
 	public bool timer_running;
 	public float timer_for_double_click;
 	public float delay = 25;
-
+	private Collider2D thisCol;
 
 	void Start () {
+		thisCol = GetComponent <BoxCollider2D>();
+
 		PlayerChild = Player.transform.GetChild (0);
 		TargetChild = Target.transform.GetChild (0);
 
@@ -68,7 +70,14 @@ public class PlayerObjectsController : MonoBehaviour {
 		Target.eulerAngles = new Vector3 (0, 0, -Angles.x);
 		Player.eulerAngles = new Vector3 (0, 0, -Angles.y);
 
-		if (Input.GetMouseButtonDown (0)) 
+
+
+		Vector3 wp = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+		Vector2 touchPos = new Vector2(wp.x, wp.y);
+
+
+
+		if (Input.GetMouseButtonDown (0) && thisCol == Physics2D.OverlapPoint(touchPos))//Input.GetMouseButtonDown (0)) 
 		{
 			if(!one_click)
 			{
@@ -80,6 +89,7 @@ public class PlayerObjectsController : MonoBehaviour {
 
 				if (StartGame == false) {
 					StartGame = true;
+					controller.SendMessage("startGame");
 				}
 
 				if (CanPress) {
@@ -151,7 +161,7 @@ public class PlayerObjectsController : MonoBehaviour {
 				MoveSpeed = 55;
 				CanReset = true;
 			}
-			if (Angles.y < Angles.x + 15) 
+			if (Angles.y < Angles.x + 2) 
 				CanPress = true;
 
 			}
@@ -165,7 +175,7 @@ public class PlayerObjectsController : MonoBehaviour {
 					CanReset = true;	
 				}
 
-				if (Angles.y > Angles.x - 15)
+				if (Angles.y > Angles.x - 2)
 					CanPress = true;
 			}
 	}
