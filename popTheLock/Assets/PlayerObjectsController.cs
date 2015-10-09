@@ -108,13 +108,13 @@ public class PlayerObjectsController : MonoBehaviour {
 				timer_for_double_click = Time.time; // save the current time
 				}
 
-				if (StartGame == false  && thisCol == Physics2D.OverlapPoint(touchPos)) {
+				if (StartGame == false ) {//&& thisCol == Physics2D.OverlapPoint(touchPos)
 					StartGame = true;
 					controller.SendMessage("startGame");
 				}
 
-				if (CanPress) {
-					if(CanReset == true){//Reset the game!
+				if (CanPress ) {
+					if(CanReset == true && thisCol == Physics2D.OverlapPoint(touchPos)){//Reset the game!
 						CanPress = false;
 						StartGame = false;
 						Angles.y = 0;
@@ -129,7 +129,7 @@ public class PlayerObjectsController : MonoBehaviour {
 						controller.SendMessage("ResetUI",SendMessageOptions.RequireReceiver);
 						CanReset = false;
 					}
-				else{
+					else if(CanReset == false){
 						if (GoInside == true)
 						{
 							if(isInside == true)
@@ -201,7 +201,11 @@ public class PlayerObjectsController : MonoBehaviour {
 	}
 
 	public void RePosition(){
-		GoInside = randomBoolean();
+		if (Angles.x != 0)
+			GoInside = randomBoolean ();
+		else
+			GoInside = false;
+
 
 		if (Angles.x == 0) {
 			Angles.x = Random.Range (-140, 140);
