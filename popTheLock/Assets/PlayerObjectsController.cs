@@ -201,7 +201,10 @@ public class PlayerObjectsController : MonoBehaviour {
 	}
 
 	public void RePosition(){
-		GoInside = randomBoolean();
+		if (Angles.y != 0)
+			GoInside = randomBoolean ();
+		else
+			GoInside = false;
 
 		if (Angles.x == 0) {
 			Angles.x = Random.Range (-140, 140);

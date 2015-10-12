@@ -361,6 +361,7 @@ MonoBehaviour:
   m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Delegates: []
   delegates: []
 --- !u!1 &169600361
 GameObject:
@@ -801,7 +802,7 @@ MonoBehaviour:
   one_click: 0
   timer_running: 0
   timer_for_double_click: 0
-  delay: .150000006
+  delay: .170000002
   GameOver: 0
 --- !u!61 &387578245
 BoxCollider2D:
@@ -1042,6 +1043,7 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: .0219999999
+  m_StereoMirrorMode: 0
 --- !u!4 &598701056
 Transform:
   m_ObjectHideFlags: 0
@@ -1438,6 +1440,7 @@ MonoBehaviour:
   m_SubmitButton: Submit
   m_CancelButton: Cancel
   m_InputActionsPerSecond: 10
+  m_RepeatDelay: .5
   m_AllowActivationOnMobileDevice: 0
 --- !u!114 &1098047546
 MonoBehaviour:
