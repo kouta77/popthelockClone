@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class GameController : MonoBehaviour {
+	public int CurrentLevel = 0;
 	public int Level = 1;
 	public Text CurrentLevelText;
 
@@ -13,16 +14,21 @@ public class GameController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+		Level = PlayerPrefs.GetInt ("Topscore", 0);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		CurrentLevelText.text = "Best: " + Level.ToString ();
+		CurrentLevelText.text = "Top " + Level.ToString ();
 	}
 
 	void YouLose(){
 		LoseUI.SetActive (true);
+		if (CurrentLevel > Level) {
+			PlayerPrefs.SetInt ("topscore", CurrentLevel);
+			Level = CurrentLevel;
+			PlayerPrefs.SetInt ("Topscore", Level);
+		}
 	}
 
 	void YouWin(){

@@ -76,7 +76,7 @@ public class PlayerObjectsController : MonoBehaviour {
 
 
 		if (StartGame)
-			Angles.y += MoveSpeed * Time.deltaTime;
+			Angles.y += MoveSpeed * Time.smoothDeltaTime;
 		//values with '-' for clocklike rotation
 		Target.eulerAngles = new Vector3 (0, 0, -Angles.x);
 		Player.eulerAngles = new Vector3 (0, 0, -Angles.y);
@@ -173,29 +173,31 @@ public class PlayerObjectsController : MonoBehaviour {
 
 
 		if(GameOver){
+			controller.CurrentLevel = LevelLenght;
 			StartGame = false;
 			controller.SendMessage ("YouLose", SendMessageOptions.RequireReceiver);
-			controller.Level = LevelLenght;
+//			if(controller.CurrentLevel > controller.Level)
+//			controller.Level = LevelLenght;
 			MoveSpeed = 55;
 			CanPress = true;
 			CanReset = true;
 		}
 
 		if (AngleDir == 0) {
-			if (Angles.y < Angles.x - 15) {
+			if (Angles.y < Angles.x - 1) {
 				GameOver = true;
 			}
-			if (Angles.y < Angles.x + 10) 
+			if (Angles.y < Angles.x + 7) 
 				CanPress = true;
 
 			}
 
 			if (AngleDir == 1) {
-				if (Angles.y > Angles.x + 15) {
+				if (Angles.y > Angles.x + 1) {
 					GameOver = true;
 				}
 
-			if (Angles.y > Angles.x - 10)
+			if (Angles.y > Angles.x - 7)
 					CanPress = true;
 			}
 	}
