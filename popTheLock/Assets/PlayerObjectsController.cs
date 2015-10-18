@@ -65,12 +65,12 @@ public class PlayerObjectsController : MonoBehaviour {
 
 		CurrentPoints.text = LevelLenght.ToString();
 		if (GoInside) {
-			TargetChild.transform.localScale = new Vector3(-0.2645999f,0.2645999f,0.2645999f);
+			TargetChild.transform.localScale = new Vector3(0.2645999f, -0.2645999f,0.2645999f);
 		} else
 			TargetChild.transform.localScale = new Vector3(0.2645999f,0.2645999f,0.2645999f);
 
 		if (isInside) {
-			PlayerChild.transform.localScale = new Vector3(-0.2645999f,0.2645999f,0.2645999f);
+			PlayerChild.transform.localScale = new Vector3(0.2645999f, -0.2645999f,0.2645999f);
 		} else
 			PlayerChild.transform.localScale = new Vector3(0.2645999f,0.2645999f,0.2645999f);
 
@@ -88,11 +88,12 @@ public class PlayerObjectsController : MonoBehaviour {
 
 		if(one_click)
 		{
+
 			if((Time.time - timer_for_double_click) > delay)
 			{
-				if(!CanPress){
-					GameOver = true;
-				}
+			//	if(!CanPress){
+			//		GameOver = true;
+			//	}
 				one_click = false;
 				
 			}
