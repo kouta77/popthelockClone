@@ -264,5 +264,9 @@ public class PlayerObjectsController : MonoBehaviour {
 		return false;
 	}
 
+	public void setSkin(int skin){
+		CurrentPlayerShape = skin;
+	}
+
 }
 
