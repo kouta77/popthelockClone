@@ -109,7 +109,7 @@ public class PlayerObjectsController : MonoBehaviour {
 				timer_for_double_click = Time.time; // save the current time
 				}
 
-				if (StartGame == false ) {//&& thisCol == Physics2D.OverlapPoint(touchPos)
+				if (StartGame == false && thisCol == Physics2D.OverlapPoint(touchPos) ) {//&& thisCol == Physics2D.OverlapPoint(touchPos)
 					StartGame = true;
 					controller.SendMessage("startGame");
 				}
