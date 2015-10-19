@@ -44,7 +44,7 @@ public class gridsnap : MonoBehaviour {
             if (child.localPosition.x == tempPos.x) {
                 // do what you want with the child
 				PlayerControl.CurrentPlayerShape = int.Parse(child.name.Substring(7))-1;
-                child.localScale = Vector3.Lerp(child.localScale, new Vector3(1.4f, 1.4f, 1f), t);
+                child.localScale = Vector3.Lerp(child.localScale, new Vector3(1f, 1f, 1f), t);
 
             }
             else {

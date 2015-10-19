@@ -185,7 +185,7 @@ public class PlayerObjectsController : MonoBehaviour {
 		}
 
 		if (AngleDir == 0) {
-			if (Angles.y < Angles.x - 1) {
+			if (Angles.y < Angles.x - 7) {
 				GameOver = true;
 			}
 			if (Angles.y < Angles.x + 7) 
@@ -194,7 +194,7 @@ public class PlayerObjectsController : MonoBehaviour {
 			}
 
 			if (AngleDir == 1) {
-				if (Angles.y > Angles.x + 1) {
+				if (Angles.y > Angles.x + 7) {
 					GameOver = true;
 				}
 
