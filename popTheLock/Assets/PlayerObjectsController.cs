@@ -252,9 +252,9 @@ public class PlayerObjectsController : MonoBehaviour {
 		}
 
 		if (AngleDir == 0)
-			MoveSpeed = 0-Mathf.Abs(MoveSpeed+SpeedMultiplier * (LevelLenght-0.5f));
+			MoveSpeed = 0-Mathf.Abs(MoveSpeed+(SpeedMultiplier * (LevelLenght/4)));
 		if (AngleDir == 1)
-			MoveSpeed = 0+Mathf.Abs(MoveSpeed-SpeedMultiplier * (LevelLenght-0.5f));	
+			MoveSpeed = 0+Mathf.Abs(MoveSpeed-(SpeedMultiplier * (LevelLenght/4)));	
 		
 	}
 

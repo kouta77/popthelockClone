@@ -461,6 +461,7 @@ GameObject:
   - 224: {fileID: 104296679}
   - 222: {fileID: 104296681}
   - 114: {fileID: 104296680}
+  - 61: {fileID: 104296682}
   m_Layer: 5
   m_Name: HelpUI
   m_TagString: Untagged
@@ -513,6 +514,19 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 104296678}
+--- !u!61 &104296682
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 104296678}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 707.799988, y: 788.900024}
 --- !u!1 &114353169
 GameObject:
   m_ObjectHideFlags: 0
@@ -1605,6 +1619,7 @@ MonoBehaviour:
   GameTheme: {r: 0, g: .690196097, b: .552941203, a: 1}
   spritesColor:
   - {fileID: 186341356}
+  HelpDialog: {fileID: 104296678}
 --- !u!1 &617128264
 GameObject:
   m_ObjectHideFlags: 0
@@ -1678,7 +1693,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 617128267}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 599720760}
+        m_MethodName: ShowHelp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &617128267

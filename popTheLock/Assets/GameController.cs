@@ -17,6 +17,7 @@ public class GameController : MonoBehaviour {
 
 	public SpriteRenderer[] spritesColor = new SpriteRenderer[5];
 
+	public GameObject HelpDialog;
 	// Use this for initialization
 	void Start () {
 		Level = PlayerPrefs.GetInt ("Topscore", 0);
@@ -59,5 +60,7 @@ public class GameController : MonoBehaviour {
 		GameplayUI.SetActive (true);
 	}
 
-
+	public void ShowHelp(){
+		HelpDialog.SetActive (!HelpDialog.active);
+	}
 }
