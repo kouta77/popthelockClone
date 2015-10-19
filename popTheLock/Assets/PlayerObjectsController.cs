@@ -16,7 +16,7 @@ public class PlayerObjectsController : MonoBehaviour {
 
 	public Vector2 Angles;
 
-	public Text CurrentPoints;
+	public Text[] CurrentPoints = new Text[2];
 
 
 	public int CurrentPlayerShape = 0;
@@ -33,7 +33,7 @@ public class PlayerObjectsController : MonoBehaviour {
 
 	private Transform PlayerChild;
 	private Transform TargetChild;
-	private float SpeedMultiplier = 1.5f;
+	private float SpeedMultiplier = 1.3f;
 	public bool one_click = false;
 	public bool timer_running;
 	public float timer_for_double_click;
@@ -63,7 +63,10 @@ public class PlayerObjectsController : MonoBehaviour {
 		//player game speed
 		//MoveSpeed = 55+SpeedMultiplier * LevelLenght;
 
-		CurrentPoints.text = LevelLenght.ToString();
+		CurrentPoints[0].text = LevelLenght.ToString();
+		CurrentPoints[1].text = CurrentPoints[0].text;
+
+
 		if (GoInside) {
 			TargetChild.transform.localScale = new Vector3(0.2645999f, -0.2645999f,0.2645999f);
 		} else
@@ -124,7 +127,7 @@ public class PlayerObjectsController : MonoBehaviour {
 						isInside = false;
 						GameOver = false;
 						RePosition();
-
+						CurrentPlayerShape=Random.Range(0,PlayerSprites.Length-1);
 						LevelLenght = 0;//controller.Level;//reset the counter
 
 						controller.SendMessage("ResetUI",SendMessageOptions.RequireReceiver);
@@ -249,9 +252,9 @@ public class PlayerObjectsController : MonoBehaviour {
 		}
 
 		if (AngleDir == 0)
-			MoveSpeed = 0-Mathf.Abs(MoveSpeed+SpeedMultiplier * LevelLenght);
+			MoveSpeed = 0-Mathf.Abs(MoveSpeed+SpeedMultiplier * (LevelLenght-0.5f));
 		if (AngleDir == 1)
-			MoveSpeed = 0+Mathf.Abs(MoveSpeed-SpeedMultiplier * LevelLenght);	
+			MoveSpeed = 0+Mathf.Abs(MoveSpeed-SpeedMultiplier * (LevelLenght-0.5f));	
 		
 	}
 

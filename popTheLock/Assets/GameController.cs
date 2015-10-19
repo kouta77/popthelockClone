@@ -11,6 +11,11 @@ public class GameController : MonoBehaviour {
 	public GameObject WinUI;
 
 	public GameObject StartScreenUI;
+	public GameObject GameplayUI;
+
+	public Color GameTheme;
+
+	public SpriteRenderer[] spritesColor = new SpriteRenderer[5];
 
 	// Use this for initialization
 	void Start () {
@@ -23,6 +28,7 @@ public class GameController : MonoBehaviour {
 	}
 
 	void YouLose(){
+		GameplayUI.SetActive (false);
 		LoseUI.SetActive (true);
 		if (CurrentLevel > Level) {
 			PlayerPrefs.SetInt ("topscore", CurrentLevel);
@@ -36,14 +42,21 @@ public class GameController : MonoBehaviour {
 	}
 
 	void ResetUI(){
+		GameTheme = new Color(Random.Range(0.0f,1.0f),Random.Range(0.0f,1.0f),Random.Range(0.0f,1.0f));
+		foreach (SpriteRenderer spr in spritesColor) {
+			spr.color = GameTheme;
+		}
+
 		Debug.Log ("reset UI");
 		WinUI.SetActive (false);
 		LoseUI.SetActive (false);
+		GameplayUI.SetActive (false);
 		StartScreenUI.SetActive (true);
 	}
 
 	void startGame(){
 		StartScreenUI.SetActive (false);
+		GameplayUI.SetActive (true);
 	}
 
 
