@@ -13,6 +13,7 @@ public class GameController : MonoBehaviour {
 	public GameObject StartScreenUI;
 	public GameObject GameplayUI;
 
+    public Color[] presetColors = new Color[1];
 	public Color GameTheme;
 
 	public SpriteRenderer[] spritesColor = new SpriteRenderer[5];
@@ -43,7 +44,7 @@ public class GameController : MonoBehaviour {
 	}
 
 	void ResetUI(){
-		GameTheme = new Color(Random.Range(0.0f,1.0f),Random.Range(0.0f,1.0f),Random.Range(0.0f,1.0f));
+        GameTheme = presetColors[Random.Range(0,4)];//new Color(Random.Range(0.0f,1.0f),Random.Range(0.0f,1.0f),Random.Range(0.0f,1.0f));
 		foreach (SpriteRenderer spr in spritesColor) {
 			spr.color = GameTheme;
 		}
