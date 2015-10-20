@@ -49,7 +49,7 @@ public class GameController : MonoBehaviour {
 			spr.color = GameTheme;
 		}
 
-		Debug.Log ("reset UI");
+//		Debug.Log ("reset UI");
 		WinUI.SetActive (false);
 		LoseUI.SetActive (false);
 		GameplayUI.SetActive (false);
