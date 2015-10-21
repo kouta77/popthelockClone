@@ -10,7 +10,7 @@ public class GameController : MonoBehaviour {
 	public GameObject LoseUI;
 	public GameObject WinUI;
 
-	public GameObject StartScreenUI;
+	public GameObject[] StartScreenUI = new GameObject[1];
 	public GameObject GameplayUI;
 
     public Color[] presetColors = new Color[1];
@@ -53,11 +53,15 @@ public class GameController : MonoBehaviour {
 		WinUI.SetActive (false);
 		LoseUI.SetActive (false);
 		GameplayUI.SetActive (false);
-		StartScreenUI.SetActive (true);
+		foreach (GameObject obj in StartScreenUI) {
+			obj.SetActive(true);
+		}
 	}
 
 	void startGame(){
-		StartScreenUI.SetActive (false);
+		foreach (GameObject obj in StartScreenUI) {
+			obj.SetActive(false);
+		}
 		GameplayUI.SetActive (true);
 	}
 
