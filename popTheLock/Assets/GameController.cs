@@ -43,8 +43,23 @@ public class GameController : MonoBehaviour {
 		WinUI.SetActive (true);
 	}
 
-	void ResetUI(){
-        GameTheme = presetColors[Random.Range(0,4)];//new Color(Random.Range(0.0f,1.0f),Random.Range(0.0f,1.0f),Random.Range(0.0f,1.0f));
+
+	private int themeint = 0;
+
+	IEnumerator ResetUI(){
+		var oldTheme = themeint;
+		themeint = Random.Range (0, 4);
+
+		while (themeint == oldTheme) {
+			themeint = Random.Range (0, 4);
+			yield return null;
+		}
+
+
+		GameTheme = presetColors[themeint];//new Color(Random.Range(0.0f,1.0f),Random.Range(0.0f,1.0f),Random.Range(0.0f,1.0f));
+
+
+
 		foreach (SpriteRenderer spr in spritesColor) {
 			spr.color = GameTheme;
 		}

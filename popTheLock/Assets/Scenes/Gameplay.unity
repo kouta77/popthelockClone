@@ -750,7 +750,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 828cadc2a32fe7444b69fa085cec013a, type: 3}
   m_Color: {r: 0, g: 1, b: .802469015, a: 1}
 --- !u!4 &186341357
@@ -967,6 +967,80 @@ MonoBehaviour:
   m_Spacing: {x: -9.02999973, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
+--- !u!1 &326858037
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 326858040}
+  - 23: {fileID: 326858039}
+  - 102: {fileID: 326858038}
+  m_Layer: 0
+  m_Name: centerScore
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!102 &326858038
+TextMesh:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 326858037}
+  m_Text: 0
+  m_OffsetZ: 0
+  m_CharacterSize: 1
+  m_LineSpacing: 1
+  m_Anchor: 0
+  m_Alignment: 0
+  m_TabSize: 4.03000021
+  m_FontSize: 57
+  m_FontStyle: 0
+  m_RichText: 1
+  m_Font: {fileID: 12800000, guid: 809332a36dbbf1f4380dd1167cf8ed6a, type: 3}
+  m_Color:
+    serializedVersion: 2
+    rgba: 4278190080
+--- !u!23 &326858039
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 326858037}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 809332a36dbbf1f4380dd1167cf8ed6a, type: 3}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_ReflectionProbeUsage: 1
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_ImportantGI: 0
+  m_AutoUVMaxDistance: .5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!4 &326858040
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 326858037}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -.273999989, y: 1.50999999, z: -1.77999997}
+  m_LocalScale: {x: .219999999, y: .239999995, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
 --- !u!1 &357760156
 GameObject:
   m_ObjectHideFlags: 0
@@ -978,6 +1052,7 @@ GameObject:
   - 222: {fileID: 357760160}
   - 114: {fileID: 357760159}
   - 114: {fileID: 357760158}
+  - 114: {fileID: 357760161}
   m_Layer: 5
   m_Name: Share
   m_TagString: Untagged
@@ -1040,7 +1115,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 357760159}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1136815399}
+        m_MethodName: OnShareTextWithImage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &357760159
@@ -1070,6 +1157,19 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 357760156}
+--- !u!114 &357760161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 357760156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0597fa51587b5a3428f95b8d69af963d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonShare: {fileID: 357760159}
+  mensaje: HOla esto es un share
 --- !u!1 &371263720
 GameObject:
   m_ObjectHideFlags: 0
@@ -1187,6 +1287,7 @@ MonoBehaviour:
   CurrentPoints:
   - {fileID: 202498353}
   - {fileID: 1352158394}
+  textmidle: {fileID: 326858038}
   CurrentPlayerShape: 3
   PlayerSprites:
   - {fileID: 21300000, guid: d78448162f3766646bc9d841e6769203, type: 3}
@@ -1615,11 +1716,11 @@ MonoBehaviour:
   StartScreenUI:
   - {fileID: 873152635}
   - {fileID: 888933436}
-  GameplayUI: {fileID: 1352158392}
+  GameplayUI: {fileID: 326858037}
   presetColors:
   - {r: 0, g: 1, b: .806201458, a: 1}
-  - {r: .963235319, g: .23936522, b: .162900075, a: 1}
-  - {r: .977941155, g: .754768908, b: .0431444459, a: 1}
+  - {r: .882353008, g: .286274523, b: .21960786, a: 1}
+  - {r: .980392218, g: .772549093, b: .10980393, a: 1}
   - {r: .733333349, g: .960784376, b: .403921604, a: 1}
   - {r: .108131476, g: .492282897, b: .91911763, a: 1}
   GameTheme: {r: 0, g: 1, b: .801136494, a: 1}
@@ -1759,7 +1860,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &674948630
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2322,7 +2423,7 @@ Transform:
   m_LocalScale: {x: .605059564, y: .605059564, z: .605059564}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
 --- !u!1 &1076848947
 GameObject:
   m_ObjectHideFlags: 0
@@ -2688,6 +2789,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 224: {fileID: 1136815398}
+  - 114: {fileID: 1136815399}
   m_Layer: 5
   m_Name: '[-]Share Buttons'
   m_TagString: Untagged
@@ -2716,6 +2818,18 @@ RectTransform:
   m_AnchoredPosition: {x: 98.9999847, y: -546.769287}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: .5, y: .5}
+--- !u!114 &1136815399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1136815397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53cc495b9535c604aba1bb05bcd8c550, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MyImage: {fileID: 2800000, guid: 288f6311bbae77d4cbe781ed73df2a9f, type: 3}
 --- !u!1 &1195234680
 GameObject:
   m_ObjectHideFlags: 0
@@ -2903,7 +3017,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1352158393
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2918,7 +3032,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 88, y: 32}
+  m_AnchoredPosition: {x: 88, y: 44}
   m_SizeDelta: {x: 207, y: 100}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1352158394
@@ -3278,7 +3392,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 483b316494086934d813ded92c9beeed, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &1545083221
@@ -3292,7 +3406,7 @@ Transform:
   m_LocalScale: {x: .761585653, y: .761585653, z: .761585653}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 13
 --- !u!1 &1636282072
 GameObject:
   m_ObjectHideFlags: 0
@@ -3772,7 +3886,7 @@ Transform:
   m_LocalScale: {x: 3.00524163, y: 1.70928109, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
 --- !u!1 &2109412469
 GameObject:
   m_ObjectHideFlags: 0
@@ -3879,7 +3993,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2123611014}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: ButtonShare
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &2123611014

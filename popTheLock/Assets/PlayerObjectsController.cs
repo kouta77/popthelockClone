@@ -17,7 +17,7 @@ public class PlayerObjectsController : MonoBehaviour {
 	public Vector2 Angles;
 
 	public Text[] CurrentPoints = new Text[2];
-
+	public TextMesh textmidle;
 
 	public int CurrentPlayerShape = 0;
 	public Sprite[] PlayerSprites;
@@ -65,7 +65,7 @@ public class PlayerObjectsController : MonoBehaviour {
 
 		CurrentPoints[0].text = LevelLenght.ToString();
 		CurrentPoints[1].text = CurrentPoints[0].text;
-
+		textmidle.text = CurrentPoints[0].text;
 
 		if (GoInside) {
 			TargetChild.transform.localScale = new Vector3(0.2645999f, -0.2645999f,0.2645999f);
