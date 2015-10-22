@@ -52,7 +52,7 @@ public class PlayerObjectsController : MonoBehaviour {
 
 		LevelLenght = 0;
 	}
-	
+	private Vector3 playerAngle;
 	// Update is called once per frame
 	void Update () {
 		if (StartGame == false) {
@@ -80,9 +80,11 @@ public class PlayerObjectsController : MonoBehaviour {
 
 		if (StartGame)
 			Angles.y += MoveSpeed * Time.smoothDeltaTime;
+
+		playerAngle.z = -Angles.y;
 		//values with '-' for clocklike rotation
 		Target.eulerAngles = new Vector3 (0, 0, -Angles.x);
-		Player.eulerAngles = new Vector3 (0, 0, -Angles.y);
+		Player.eulerAngles = playerAngle;//new Vector3 (0, 0, -Angles.y);
 
 
 
