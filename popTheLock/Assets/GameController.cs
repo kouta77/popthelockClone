@@ -36,6 +36,7 @@ public class GameController : MonoBehaviour {
 			PlayerPrefs.SetInt ("topscore", CurrentLevel);
 			Level = CurrentLevel;
 			PlayerPrefs.SetInt ("Topscore", Level);
+			this.gameObject.SendMessage("PostScore", Level, SendMessageOptions.RequireReceiver);
 		}
 	}
 
