@@ -131,8 +131,7 @@ public class PlayerObjectsController : MonoBehaviour {
 						RePosition();
 						CurrentPlayerShape=Random.Range(0,PlayerSprites.Length-1);
 						LevelLenght = 0;//controller.Level;//reset the counter
-
-						controller.SendMessage("ResetUI",SendMessageOptions.RequireReceiver);
+						controller.SendMessage("ResetUI",true,SendMessageOptions.RequireReceiver);
 						CanReset = false;
 					}
 					else if(CanReset == false){
@@ -141,6 +140,10 @@ public class PlayerObjectsController : MonoBehaviour {
 							if(isInside == true)
 							{
 							LevelLenght += 1;
+
+								if (LevelLenght % 5 == 0)
+									controller.SendMessage("ResetUI",false,SendMessageOptions.RequireReceiver);
+
 							one_click = false;
 							RePosition();
 							}
@@ -152,6 +155,10 @@ public class PlayerObjectsController : MonoBehaviour {
 							{
 								one_click = false;
 								LevelLenght += 1;
+
+								if (LevelLenght % 5 == 0)
+									controller.SendMessage("ResetUI",false,SendMessageOptions.RequireReceiver);
+
 								RePosition();
 							}
 						}
