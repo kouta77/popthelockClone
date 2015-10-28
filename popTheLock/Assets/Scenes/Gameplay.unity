@@ -617,7 +617,6 @@ GameObject:
   - 222: {fileID: 357760160}
   - 114: {fileID: 357760159}
   - 114: {fileID: 357760158}
-  - 114: {fileID: 357760161}
   m_Layer: 5
   m_Name: Share
   m_TagString: Untagged
@@ -681,8 +680,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1136815399}
-        m_MethodName: OnShareTextWithImage
+      - m_Target: {fileID: 1136815400}
+        m_MethodName: ShareScreenShotUsingShareSheet
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -722,17 +721,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 357760156}
---- !u!114 &357760161
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 357760156}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0597fa51587b5a3428f95b8d69af963d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &387578242
 GameObject:
   m_ObjectHideFlags: 0
@@ -1872,6 +1860,7 @@ GameObject:
   m_Component:
   - 224: {fileID: 1136815398}
   - 114: {fileID: 1136815399}
+  - 114: {fileID: 1136815400}
   m_Layer: 5
   m_Name: '[-]Share Buttons'
   m_TagString: Untagged
@@ -1906,12 +1895,25 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1136815397}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 53cc495b9535c604aba1bb05bcd8c550, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   MyImage: {fileID: 2800000, guid: 288f6311bbae77d4cbe781ed73df2a9f, type: 3}
+--- !u!114 &1136815400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1136815397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c89789cf99dcbc458c2bfcff8c8e13d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_shareMessage: Can you beat my score!?
+  m_excludedOptions: 
 --- !u!1 &1195234680
 GameObject:
   m_ObjectHideFlags: 0

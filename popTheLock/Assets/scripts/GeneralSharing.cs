@@ -25,7 +25,7 @@ public class GeneralSharing : MonoBehaviour
 	void ScreenshotSaved ()
 	{
 		#if UNITY_IPHONE || UNITY_IPAD
-		GeneralSharingiOSBridge.ShareTextWithImage (ScreenshotHandler.savedImagePath, "Hello !!! \nThis is post from TheAppGuruz");
+		GeneralSharingiOSBridge.ShareTextWithImage (ScreenshotHandler.savedImagePath, "Can you beat my score?");
 		#endif
 	}
 	#endregion
@@ -109,6 +109,28 @@ public class GeneralSharing : MonoBehaviour
 		#endif
 		
 	}
+
+	IEnumerator SaveAndShareIOS ()
+	{
+		yield return new WaitForEndOfFrame ();
+		#if UNITY_IPHONE || UNITY_IPAD
+		Debug.Log("saved ios screenshot");
+		Texture2D screenTexture = new Texture2D(Screen.width, Screen.height,TextureFormat.RGB24,true);
+		screenTexture.ReadPixels(new Rect(0f, 0f, Screen.width, Screen.height),0,0);
+		screenTexture.Apply();
+		byte[] dataToSave = screenTexture.EncodeToPNG();
+		string destination = Path.Combine(Application.persistentDataPath,System.DateTime.Now.ToString("yyyy-MM-dd-HHmmss") + ".png");
+		File.WriteAllBytes(destination, dataToSave);
+		
+		
+		
+		StartCoroutine (ScreenshotHandler.Save (destination, "Media Share", true));
+		#endif
+		
+	}
+
+
+
 	#endregion
 	
 	#region BUTTON_CLICK_LISTENER
@@ -133,16 +155,7 @@ public class GeneralSharing : MonoBehaviour
 //		File.WriteAllBytes (path, bytes);
 //		string path_ = "MyImage.png";
 
-		Texture2D screenTexture = new Texture2D(Screen.width, Screen.height,TextureFormat.RGB24,true);
-		screenTexture.ReadPixels(new Rect(0f, 0f, Screen.width, Screen.height),0,0);
-		screenTexture.Apply();
-		byte[] dataToSave = screenTexture.EncodeToPNG();
-		string destination = Path.Combine(Application.persistentDataPath,System.DateTime.Now.ToString("yyyy-MM-dd-HHmmss") + ".png");
-		File.WriteAllBytes(destination, dataToSave);
-
-
-
-		StartCoroutine (ScreenshotHandler.Save (destination, "Media Share", true));
+		StartCoroutine (SaveAndShareIOS ());
 		#endif
 	}
 	#endregion

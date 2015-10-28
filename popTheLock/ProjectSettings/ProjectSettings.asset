@@ -10,7 +10,7 @@ PlayerSettings:
   targetGlesGraphics: -1
   targetIOSGraphics: -1
   targetResolution: 0
-  accelerometerFrequency: 60
+  accelerometerFrequency: 0
   companyName: Realitystudio
   productName: popTheLock
   cloudProjectId: 
@@ -136,7 +136,10 @@ PlayerSettings:
     m_Icons:
     - m_Icon: {fileID: 2800000, guid: db371269c6bf8934da46bde32f907d97, type: 3}
       m_Size: 128
-  m_BuildTargetBatching: []
+  m_BuildTargetBatching:
+  - m_BuildTarget: iPhone
+    m_StaticBatching: 1
+    m_DynamicBatching: 1
   webPlayerTemplate: APPLICATION:Default
   m_TemplateCustomTags: {}
   actionOnDotNetUnhandledException: 1
@@ -252,12 +255,12 @@ PlayerSettings:
   psmSplashimage: {fileID: 0}
   spritePackerPolicy: 
   scriptingDefineSymbols:
-    1: CROSS_PLATFORM_INPUT
+    1: CROSS_PLATFORM_INPUT;NATIVE_PLUGINS_LITE_VERSION;USES_SHARING
     2: CROSS_PLATFORM_INPUT
-    4: CROSS_PLATFORM_INPUT;MOBILE_INPUT
-    7: CROSS_PLATFORM_INPUT;MOBILE_INPUT
-    14: MOBILE_INPUT
-    15: CROSS_PLATFORM_INPUT;MOBILE_INPUT
+    4: CROSS_PLATFORM_INPUT;MOBILE_INPUT;NATIVE_PLUGINS_LITE_VERSION;USES_SHARING
+    7: CROSS_PLATFORM_INPUT;MOBILE_INPUT;NATIVE_PLUGINS_LITE_VERSION;USES_SHARING
+    14: MOBILE_INPUT;NATIVE_PLUGINS_LITE_VERSION;USES_SHARING
+    15: CROSS_PLATFORM_INPUT;MOBILE_INPUT;NATIVE_PLUGINS_LITE_VERSION;USES_SHARING
     16: CROSS_PLATFORM_INPUT;MOBILE_INPUT
     17: MOBILE_INPUT
     20: MOBILE_INPUT

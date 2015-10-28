@@ -70,7 +70,7 @@ QualitySettings:
     softVegetation: 0
     realtimeReflectionProbes: 0
     billboardsFaceCameraPosition: 0
-    vSyncCount: 1
+    vSyncCount: 0
     lodBias: .699999988
     maximumLODLevel: 0
     particleRaycastBudget: 64
