@@ -78,8 +78,12 @@ public class PlayerObjectsController : MonoBehaviour {
 			PlayerChild.transform.localScale = new Vector3(0.2645999f,0.2645999f,0.2645999f);
 
 
-		if (StartGame)
+		if (StartGame) {
+			if(!isInside)
 			Angles.y += MoveSpeed * Time.smoothDeltaTime;
+			else
+			Angles.y += (MoveSpeed*1.2f) * Time.smoothDeltaTime;
+		}
 
 		playerAngle.z = -Angles.y;
 		//values with '-' for clocklike rotation

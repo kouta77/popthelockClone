@@ -42,11 +42,15 @@ public class SocialExample : MonoBehaviour {
 	}
 
 	public void ShowLeaderboard(){
+		#if UNITY_IOS
 		Social.ShowLeaderboardUI();
+		#endif	
 	}
 
 	public void PostScore(long score){
+#if UNITY_IOS
 		Social.ReportScore(score,"007123",HighScoreCheck);
+#endif	
 	}
 
 	static void HighScoreCheck(bool result){
